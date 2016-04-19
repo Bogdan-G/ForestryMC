@@ -91,7 +91,7 @@ public class TankManager implements ITankManager, ITankUpdateHandler, IStreamabl
 	@Override
 	public void writeToNBT(NBTTagCompound data) {
 		NBTTagList tagList = new NBTTagList();
-		byte tanks_sS=tanks.size();
+		byte tanks_sS= (byte) tanks.size();
 		for (byte slot = 0; slot < tanks_sS; slot++) {
 			StandardTank tank = tanks.get(slot);
 			if (tank.getFluid() != null) {

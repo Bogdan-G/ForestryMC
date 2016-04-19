@@ -66,7 +66,7 @@ public class ShapedRecipeCustom extends ShapedOreRecipe implements IDescriptiveR
 			shape=String.valueOf(shapeSB);
 			height = parts.length;
 		} else {
-			StringBuilder shapeSB = new StringBuilder(shape);
+			shapeSB = new StringBuilder(shape);
 			while (recipe[idx] instanceof String) {
 				String s = (String) recipe[idx++];
 				shapeSB.append(s);
