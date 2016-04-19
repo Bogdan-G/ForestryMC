@@ -89,7 +89,8 @@ public abstract class BeverageEffect implements IBeverageEffect {
 
 		NBTTagList nbttaglist = new NBTTagList();
 		nbttagcompound.setInteger("L", effects.size());
-		for (int i = 0; i < effects.size(); i++) {
+		int effects_sS=effects.size();
+		for (int i = 0; i < effects_sS; i++) {
 			IBeverageEffect effect = effects.get(i);
 			if (effect != null) {
 				NBTTagCompound nbttagcompound1 = new NBTTagCompound();

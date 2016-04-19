@@ -46,8 +46,9 @@ public class InventoryTradeStation extends InventoryAdapter {
 			slots.add(i);
 		}
 
-		int[] slotsInt = new int[slots.size()];
-		for (int i = 0; i < slots.size(); i++) {
+		int slots_sS=slots.size();
+		int[] slotsInt = new int[slots_sS];
+		for (int i = 0; i < slots_sS; i++) {
 			slotsInt[i] = slots.get(i);
 		}
 

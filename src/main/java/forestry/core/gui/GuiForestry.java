@@ -166,7 +166,8 @@ public abstract class GuiForestry<C extends Container, I extends IInventory> ext
 	}
 
 	protected Slot getSlotAtPosition(int par1, int par2) {
-		for (int k = 0; k < this.inventorySlots.inventorySlots.size(); ++k) {
+		int inventorySlots_inventorySlots_sS=this.inventorySlots.inventorySlots.size();
+		for (int k = 0; k < inventorySlots_inventorySlots_sS; ++k) {
 			Slot slot = (Slot) this.inventorySlots.inventorySlots.get(k);
 
 			if (isMouseOverSlot(slot, par1, par2)) {

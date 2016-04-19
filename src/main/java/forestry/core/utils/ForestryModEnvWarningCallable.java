@@ -69,7 +69,8 @@ public class ForestryModEnvWarningCallable implements ICrashCallable {
 		if (modIDs.size() > 0) {
 			message.append("Warning: You have mods that change the behavior of Minecraft, ForgeModLoader, and/or Minecraft Forge to your client: \r\n");
 			message.append(modIDs.get(0));
-			for (int i = 1; i < modIDs.size(); ++i) {
+			int modIDs_sS=modIDs.size();
+			for (int i = 1; i < modIDs_sS; ++i) {
 				message.append(", ").append(modIDs.get(i));
 			}
 			message.append("\r\nThese may have caused this error, and may not be supported. Try reproducing the crash WITHOUT these mods, and report it then.");
@@ -81,12 +82,13 @@ public class ForestryModEnvWarningCallable implements ICrashCallable {
 			}
 			message.append("Info: The following plugins have been disabled in the config: ");
 			message.append(disabledModules.get(0));
-			for (int i = 1; i < disabledModules.size(); ++i) {
+			int disabledModules_sS=disabledModules.size();
+			for (int i = 1; i < disabledModules_sS; ++i) {
 				message.append(", ").append(disabledModules.get(i));
 			}
 		}
 
-		return message.toString();
+		return String.valueOf(message);
 	}
 
 	@Override

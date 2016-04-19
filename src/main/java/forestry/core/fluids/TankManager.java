@@ -91,7 +91,8 @@ public class TankManager implements ITankManager, ITankUpdateHandler, IStreamabl
 	@Override
 	public void writeToNBT(NBTTagCompound data) {
 		NBTTagList tagList = new NBTTagList();
-		for (byte slot = 0; slot < tanks.size(); slot++) {
+		byte tanks_sS=tanks.size();
+		for (byte slot = 0; slot < tanks_sS; slot++) {
 			StandardTank tank = tanks.get(slot);
 			if (tank.getFluid() != null) {
 				NBTTagCompound tag = new NBTTagCompound();
@@ -296,7 +297,8 @@ public class TankManager implements ITankManager, ITankUpdateHandler, IStreamabl
 	@Override
 	public FluidTankInfo[] getTankInfo(ForgeDirection direction) {
 		FluidTankInfo[] info = new FluidTankInfo[tanks.size()];
-		for (int i = 0; i < tanks.size(); i++) {
+		int tanks_sS=tanks.size();
+		for (int i = 0; i < tanks_sS; i++) {
 			info[i] = tanks.get(i).getInfo();
 		}
 		return info;

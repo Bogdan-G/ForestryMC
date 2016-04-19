@@ -166,7 +166,8 @@ public class MultiblockWorldRegistry {
 							// Multiple pools- merge into one, then add the compatible controllers
 							Set<IMultiblockControllerInternal> masterPool = candidatePools.get(0);
 							Set<IMultiblockControllerInternal> consumedPool;
-							for (int i = 1; i < candidatePools.size(); i++) {
+							int candidatePools_sS=candidatePools.size();
+							for (int i = 1; i < candidatePools_sS; i++) {
 								consumedPool = candidatePools.get(i);
 								masterPool.addAll(consumedPool);
 								mergePools.remove(consumedPool);

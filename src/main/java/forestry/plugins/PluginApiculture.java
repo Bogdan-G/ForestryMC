@@ -223,8 +223,9 @@ public class PluginApiculture extends ForestryPlugin {
 		}
 
 		List<IBeekeepingMode> beekeepingModes = BeeManager.beeRoot.getBeekeepingModes();
-		String[] validBeekeepingModeNames = new String[beekeepingModes.size()];
-		for (int i = 0; i < beekeepingModes.size(); i++) {
+		int beekeepingModes_sS=beekeepingModes.size();
+		String[] validBeekeepingModeNames = new String[beekeepingModes_sS];
+		for (int i = 0; i < beekeepingModes_sS; i++) {
 			validBeekeepingModeNames[i] = beekeepingModes.get(i).getName();
 		}
 

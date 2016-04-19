@@ -410,8 +410,9 @@ public class PluginStorage extends ForestryPlugin {
 
 		{
 			List<Integer> oreIds = new ArrayList<>(backpackDefinition.getValidOreIds());
-			String[] defaultOreNames = new String[oreIds.size()];
-			for (int i = 0; i < oreIds.size(); i++) {
+			int oreIds_sS=oreIds.size();
+			String[] defaultOreNames = new String[oreIds_sS];
+			for (int i = 0; i < oreIds_sS; i++) {
 				int oreId = oreIds.get(i);
 				defaultOreNames[i] = OreDictionary.getOreName(oreId);
 			}
