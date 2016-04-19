@@ -60,7 +60,7 @@ public class ShapedRecipeCustom extends ShapedOreRecipe implements IDescriptiveR
 
 			for (String s : parts) {
 				width = s.length();
-				shapeSB.append(s)
+				shapeSB.append(s);
 			}
 
 			shape=String.valueOf(shapeSB);
