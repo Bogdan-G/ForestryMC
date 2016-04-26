@@ -44,13 +44,13 @@ public class ItemBlockCandle extends ItemBlockForestry {
 	public String getUnlocalizedName(ItemStack itemStack) {
 		String value = getBlock().getUnlocalizedName();
 		if (itemStack.hasTagCompound() && itemStack.getTagCompound().hasKey(BlockCandle.colourTagName)) {
-			value = value + ".dyed";
+			value = String.valueOf(new StringBuilder().append(value).append(".dyed"));
 		}
 
 		if (BlockCandle.isLit(itemStack)) {
-			value = value + ".lit";
+			value = String.valueOf(new StringBuilder().append(value).append(".lit"));
 		} else {
-			value = value + ".stump";
+			value = String.valueOf(new StringBuilder().append(value).append(".stump"));
 		}
 		return value;
 	}

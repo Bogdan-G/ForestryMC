@@ -71,10 +71,8 @@ public class BeeHelper extends SpeciesRoot implements IBeeRoot {
 		if (beeSpeciesCount < 0) {
 			beeSpeciesCount = 0;
 			for (Entry<String, IAllele> entry : AlleleManager.alleleRegistry.getRegisteredAlleles().entrySet()) {
-				if (entry.getValue() instanceof IAlleleBeeSpecies) {
-					if (((IAlleleBeeSpecies) entry.getValue()).isCounted()) {
+				if ((entry.getValue() instanceof IAlleleBeeSpecies) && (((IAlleleBeeSpecies) entry.getValue()).isCounted())) {
 						beeSpeciesCount++;
-					}
 				}
 			}
 		}

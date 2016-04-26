@@ -49,7 +49,7 @@ public class PipetteContents implements INBTTagable {
 		}
 
 		String descr = contents.getFluid().getLocalizedName(contents);
-		descr += " (" + contents.amount + " mb)";
+		descr = String.valueOf(new StringBuilder().append(descr).append(" (").append(contents.amount).append(" mb)"));
 
 		list.add(descr);
 	}

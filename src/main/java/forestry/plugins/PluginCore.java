@@ -64,6 +64,10 @@ public class PluginCore extends ForestryPlugin {
 	public static ItemRegistryCore items;
 	public static BlockRegistryCore blocks;
 
+	private final String octothorpe_3_text = "###";
+	private final String octo_space_octo_text = "# #";
+	private final String sxs_text = " X ";
+
 	@Override
 	protected void setupAPI() {
 		super.setupAPI();
@@ -205,10 +209,10 @@ public class PluginCore extends ForestryPlugin {
 		}
 
 		/* STURDY MACHINE */
-		RecipeUtil.addRecipe(items.sturdyCasing, "###", "# #", "###", '#', "ingotBronze");
+		RecipeUtil.addRecipe(items.sturdyCasing, octothorpe_3_text, octo_space_octo_text, octothorpe_3_text, '#', "ingotBronze");
 
 		// / EMPTY CANS
-		RecipeUtil.addRecipe(ForestryAPI.activeMode.getStackSetting("recipe.output.can"), " # ", "# #", '#', "ingotTin");
+		RecipeUtil.addRecipe(ForestryAPI.activeMode.getStackSetting("recipe.output.can"), " # ", octo_space_octo_text, '#', "ingotTin");
 
 		// / GEARS
 		ArrayList<ItemStack> stoneGear = OreDictionary.getOres("gearStone");
@@ -223,37 +227,37 @@ public class PluginCore extends ForestryPlugin {
 		RecipeUtil.addRecipe(items.gearTin, " # ", "#X#", " # ", '#', "ingotTin", 'X', gearCenter);
 
 		// / SURVIVALIST TOOLS
-		RecipeUtil.addRecipe(items.bronzePickaxe, " X ", " X ", "###", '#', "ingotBronze", 'X', "stickWood");
-		RecipeUtil.addRecipe(items.bronzeShovel, " X ", " X ", " # ", '#', "ingotBronze", 'X', "stickWood");
+		RecipeUtil.addRecipe(items.bronzePickaxe, sxs_text, sxs_text, octothorpe_3_text, '#', "ingotBronze", 'X', "stickWood");
+		RecipeUtil.addRecipe(items.bronzeShovel, sxs_text, sxs_text, " # ", '#', "ingotBronze", 'X', "stickWood");
 		RecipeUtil.addShapelessRecipe(items.kitPickaxe, items.bronzePickaxe, items.carton);
 		RecipeUtil.addShapelessRecipe(items.kitShovel, items.bronzeShovel, items.carton);
 
 		/* NATURALIST'S ARMOR */
-		RecipeUtil.addRecipe(items.spectacles, " X ", "Y Y", 'X', "ingotBronze", 'Y', "paneGlass");
+		RecipeUtil.addRecipe(items.spectacles, sxs_text, "Y Y", 'X', "ingotBronze", 'Y', "paneGlass");
 
 		// / WRENCH
-		RecipeUtil.addRecipe(items.wrench, "# #", " # ", " # ", '#', "ingotBronze");
+		RecipeUtil.addRecipe(items.wrench, octo_space_octo_text, " # ", " # ", '#', "ingotBronze");
 
 		// Manure and Fertilizer
 		if (ForestryAPI.activeMode.getStackSetting("recipe.output.compost.wheat").stackSize > 0) {
-			RecipeUtil.addRecipe(ForestryAPI.activeMode.getStackSetting("recipe.output.compost.wheat"), " X ", "X#X", " X ", '#', Blocks.dirt, 'X', "cropWheat");
+			RecipeUtil.addRecipe(ForestryAPI.activeMode.getStackSetting("recipe.output.compost.wheat"), sxs_text, "X#X", sxs_text, '#', Blocks.dirt, 'X', "cropWheat");
 		}
 		if (ForestryAPI.activeMode.getStackSetting("recipe.output.compost.ash").stackSize > 0) {
-			RecipeUtil.addRecipe(ForestryAPI.activeMode.getStackSetting("recipe.output.compost.ash"), " X ", "X#X", " X ", '#', Blocks.dirt, 'X', "dustAsh");
+			RecipeUtil.addRecipe(ForestryAPI.activeMode.getStackSetting("recipe.output.compost.ash"), sxs_text, "X#X", sxs_text, '#', Blocks.dirt, 'X', "dustAsh");
 		}
 		if (ForestryAPI.activeMode.getStackSetting("recipe.output.fertilizer.apatite").stackSize > 0) {
-			RecipeUtil.addRecipe(ForestryAPI.activeMode.getStackSetting("recipe.output.fertilizer.apatite"), " # ", " X ", " # ", '#', "sand", 'X', "gemApatite");
+			RecipeUtil.addRecipe(ForestryAPI.activeMode.getStackSetting("recipe.output.fertilizer.apatite"), " # ", sxs_text, " # ", '#', "sand", 'X', "gemApatite");
 		}
 		if (ForestryAPI.activeMode.getStackSetting("recipe.output.fertilizer.ash").stackSize > 0) {
-			RecipeUtil.addRecipe(ForestryAPI.activeMode.getStackSetting("recipe.output.fertilizer.ash"), "###", "#X#", "###", '#', "dustAsh", 'X', "gemApatite");
+			RecipeUtil.addRecipe(ForestryAPI.activeMode.getStackSetting("recipe.output.fertilizer.ash"), octothorpe_3_text, "#X#", octothorpe_3_text, '#', "dustAsh", 'X', "gemApatite");
 		}
 
 		// Humus
 		if (ForestryAPI.activeMode.getStackSetting("recipe.output.humus.compost").stackSize > 0) {
-			RecipeUtil.addRecipe(ForestryAPI.activeMode.getStackSetting("recipe.output.humus.compost"), "###", "#X#", "###", '#', Blocks.dirt, 'X', items.fertilizerBio);
+			RecipeUtil.addRecipe(ForestryAPI.activeMode.getStackSetting("recipe.output.humus.compost"), octothorpe_3_text, "#X#", octothorpe_3_text, '#', Blocks.dirt, 'X', items.fertilizerBio);
 		}
 		if (ForestryAPI.activeMode.getStackSetting("recipe.output.humus.fertilizer").stackSize > 0) {
-			RecipeUtil.addRecipe(ForestryAPI.activeMode.getStackSetting("recipe.output.humus.fertilizer"), "###", "#X#", "###", '#', Blocks.dirt, 'X', items.fertilizerCompound);
+			RecipeUtil.addRecipe(ForestryAPI.activeMode.getStackSetting("recipe.output.humus.fertilizer"), octothorpe_3_text, "#X#", octothorpe_3_text, '#', Blocks.dirt, 'X', items.fertilizerCompound);
 		}
 
 		// Bog earth
@@ -274,19 +278,19 @@ public class PluginCore extends ForestryPlugin {
 		RecipeUtil.addRecipe(new ItemStack(Items.string), "#", "#", "#", '#', items.craftingMaterial.getSilkWisp());
 
 		// / Pipette
-		RecipeUtil.addRecipe(items.pipette, "  #", " X ", "X  ", 'X', "paneGlass", '#', new ItemStack(Blocks.wool, 1, OreDictionary.WILDCARD_VALUE));
+		RecipeUtil.addRecipe(items.pipette, "  #", sxs_text, "X  ", 'X', "paneGlass", '#', new ItemStack(Blocks.wool, 1, OreDictionary.WILDCARD_VALUE));
 
 		// Storage Blocks
-		RecipeUtil.addRecipe(blocks.resourceStorage.get(BlockResourceStorage.ResourceType.APATITE), "###", "###", "###", '#', "gemApatite");
+		RecipeUtil.addRecipe(blocks.resourceStorage.get(BlockResourceStorage.ResourceType.APATITE), octothorpe_3_text, octothorpe_3_text, octothorpe_3_text, '#', "gemApatite");
 		RecipeUtil.addShapelessRecipe(new ItemStack(items.apatite, 9), "blockApatite");
 
-		RecipeUtil.addRecipe(blocks.resourceStorage.get(BlockResourceStorage.ResourceType.COPPER), "###", "###", "###", '#', "ingotCopper");
+		RecipeUtil.addRecipe(blocks.resourceStorage.get(BlockResourceStorage.ResourceType.COPPER), octothorpe_3_text, octothorpe_3_text, octothorpe_3_text, '#', "ingotCopper");
 		RecipeUtil.addShapelessRecipe(new ItemStack(items.ingotCopper, 9), "blockCopper");
 
-		RecipeUtil.addRecipe(blocks.resourceStorage.get(BlockResourceStorage.ResourceType.TIN), "###", "###", "###", '#', "ingotTin");
+		RecipeUtil.addRecipe(blocks.resourceStorage.get(BlockResourceStorage.ResourceType.TIN), octothorpe_3_text, octothorpe_3_text, octothorpe_3_text, '#', "ingotTin");
 		RecipeUtil.addShapelessRecipe(new ItemStack(items.ingotTin, 9), "blockTin");
 
-		RecipeUtil.addRecipe(blocks.resourceStorage.get(BlockResourceStorage.ResourceType.BRONZE), "###", "###", "###", '#', "ingotBronze");
+		RecipeUtil.addRecipe(blocks.resourceStorage.get(BlockResourceStorage.ResourceType.BRONZE), octothorpe_3_text, octothorpe_3_text, octothorpe_3_text, '#', "ingotBronze");
 		RecipeUtil.addShapelessRecipe(new ItemStack(items.ingotBronze, 9), "blockBronze");
 	}
 

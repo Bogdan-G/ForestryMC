@@ -140,6 +140,9 @@ public class PluginApiculture extends ForestryPlugin {
 
 	private final Map<String, String[]> defaultAcceptedFlowers = new HashMap<>();
 	private final Map<String, String[]> defaultPlantableFlowers = new HashMap<>();
+	
+	private final String octothorpe_3_text = "###";
+	private final String octo_space_octo_text = "# #";
 
 	@Override
 	@SuppressWarnings({"unchecked"})
@@ -366,7 +369,7 @@ public class PluginApiculture extends ForestryPlugin {
 
 					int meta = flower.getMeta();
 					if (flower.getMeta() != OreDictionary.WILDCARD_VALUE) {
-						name = name + ':' + meta;
+						name = String.valueOf(new StringBuilder().append(name).append(':').append(meta));
 					}
 
 					if (flower.isPlantable()) {
@@ -423,16 +426,16 @@ public class PluginApiculture extends ForestryPlugin {
 		// / APIARIST'S ARMOR
 		ItemStack wovenSilk = PluginCore.items.craftingMaterial.getWovenSilk();
 		RecipeUtil.addRecipe(items.apiaristHat,
-				"###", "# #",
+				octothorpe_3_text, octo_space_octo_text,
 				'#', wovenSilk);
 		RecipeUtil.addRecipe(items.apiaristChest,
-				"# #", "###", "###",
+				octo_space_octo_text, octothorpe_3_text, octothorpe_3_text,
 				'#', wovenSilk);
 		RecipeUtil.addRecipe(items.apiaristLegs,
-				"###", "# #", "# #",
+				octothorpe_3_text, octo_space_octo_text, octo_space_octo_text,
 				'#', wovenSilk);
 		RecipeUtil.addRecipe(items.apiaristBoots,
-				"# #", "# #",
+				octo_space_octo_text, octo_space_octo_text,
 				'#', wovenSilk);
 
 		// / HABITAT LOCATOR
@@ -444,7 +447,7 @@ public class PluginApiculture extends ForestryPlugin {
 
 		// Bees
 		RecipeUtil.addRecipe(items.scoop,
-				"#X#", "###", " # ",
+				"#X#", octothorpe_3_text, " # ",
 				'#', "stickWood",
 				'X', Blocks.wool);
 		RecipeUtil.addRecipe(new ItemStack(Items.slime_ball),
@@ -457,11 +460,11 @@ public class PluginApiculture extends ForestryPlugin {
 				'X', items.honeydew,
 				'Y', Items.melon);
 		RecipeUtil.addRecipe(items.frameUntreated,
-				"###", "#S#", "###",
+				octothorpe_3_text, "#S#", octothorpe_3_text,
 				'#', "stickWood",
 				'S', Items.string);
 		RecipeUtil.addRecipe(items.frameImpregnated,
-				"###", "#S#", "###",
+				octothorpe_3_text, "#S#", octothorpe_3_text,
 				'#', PluginCore.items.stickImpregnated,
 				'S', Items.string);
 		RecipeUtil.addRecipe(items.minecartBeehouse.getBeeHouseMinecart(),
@@ -479,25 +482,25 @@ public class PluginApiculture extends ForestryPlugin {
 		ItemRegistryFood foodItems = PluginFood.items;
 		if (foodItems != null) {
 			RecipeUtil.addRecipe(new ItemStack(foodItems.honeyedSlice, 4),
-					"###", "#X#", "###",
+					octothorpe_3_text, "#X#", octothorpe_3_text,
 					'#', items.honeyDrop,
 					'X', Items.bread);
 
 			RecipeUtil.addRecipe(foodItems.honeyPot,
-					"# #", " X ", "# #",
+					octo_space_octo_text, " X ", octo_space_octo_text,
 					'#', items.honeyDrop,
 					'X', PluginFluids.items.waxCapsuleEmpty);
 
 			RecipeUtil.addRecipe(foodItems.ambrosia,
-					"#Y#", "XXX", "###",
+					"#Y#", "XXX", octothorpe_3_text,
 					'#', items.honeydew,
 					'X', items.royalJelly,
 					'Y', PluginFluids.items.waxCapsuleEmpty);
 		}
 
 		// / CAPSULES
-		RecipeUtil.addRecipe(ForestryAPI.activeMode.getStackSetting("recipe.output.capsule"), "###", '#', PluginCore.items.beeswax);
-		RecipeUtil.addRecipe(ForestryAPI.activeMode.getStackSetting("recipe.output.refractory"), "###", '#', PluginCore.items.refractoryWax);
+		RecipeUtil.addRecipe(ForestryAPI.activeMode.getStackSetting("recipe.output.capsule"), octothorpe_3_text, '#', PluginCore.items.beeswax);
+		RecipeUtil.addRecipe(ForestryAPI.activeMode.getStackSetting("recipe.output.refractory"), octothorpe_3_text, '#', PluginCore.items.refractoryWax);
 
 		// / BITUMINOUS PEAT
 		RecipeUtil.addRecipe(PluginCore.items.bituminousPeat.getItemStack(),
@@ -512,21 +515,21 @@ public class PluginApiculture extends ForestryPlugin {
 				'#', PluginCore.items.beeswax,
 				'Y', "stickWood");
 		RecipeUtil.addRecipe(PluginCore.items.craftingMaterial.getPulsatingMesh(),
-				"# #", " # ", "# #",
+				octo_space_octo_text, " # ", octo_space_octo_text,
 				'#', items.propolis.get(EnumPropolis.PULSATING, 1));
 
 		// / WAX CAST
 		RecipeUtil.addRecipe(items.waxCast,
-				"###",
-				"# #",
-				"###",
+				octothorpe_3_text,
+				octo_space_octo_text,
+				octothorpe_3_text,
 				'#', PluginCore.items.beeswax);
 
 		// / ALVEARY
 		RecipeUtil.addRecipe(blocks.alveary.get(BlockAlveary.Type.PLAIN),
-				"###",
+				octothorpe_3_text,
 				"#X#",
-				"###",
+				octothorpe_3_text,
 				'X', PluginCore.items.impregnatedCasing,
 				'#', PluginCore.items.craftingMaterial.getScentedPaneling());
 		// SWARMER
@@ -596,7 +599,7 @@ public class PluginApiculture extends ForestryPlugin {
 					'R', "dustRedstone",
 					'D', "gemDiamond");
 			RecipeManagers.carpenterManager.addRecipe(50, Fluids.HONEY.getFluid(500), null, PluginCore.items.craftingMaterial.getScentedPaneling(),
-					" J ", "###", "WPW",
+					" J ", octothorpe_3_text, "WPW",
 					'#', "plankWood",
 					'J', items.royalJelly,
 					'W', PluginCore.items.beeswax,
@@ -604,8 +607,8 @@ public class PluginApiculture extends ForestryPlugin {
 
 			RecipeManagers.carpenterManager.addRecipe(30, Fluids.WATER.getFluid(600), null, blocks.candle.getUnlitCandle(24),
 					" X ",
-					"###",
-					"###",
+					octothorpe_3_text,
+					octothorpe_3_text,
 					'#', PluginCore.items.beeswax,
 					'X', Items.string);
 			RecipeManagers.carpenterManager.addRecipe(10, Fluids.WATER.getFluid(200), null, blocks.candle.getUnlitCandle(6),
@@ -727,7 +730,7 @@ public class PluginApiculture extends ForestryPlugin {
 		RecipeUtil.addRecipe(blocks.apiculture.get(BlockApicultureType.APIARY),
 				"XXX",
 				"#C#",
-				"###",
+				octothorpe_3_text,
 				'X', "slabWood",
 				'#', "plankWood",
 				'C', PluginCore.items.impregnatedCasing);
@@ -743,7 +746,7 @@ public class PluginApiculture extends ForestryPlugin {
 		RecipeUtil.addRecipe(blocks.apiculture.get(BlockApicultureType.BEEHOUSE),
 				"XXX",
 				"#C#",
-				"###",
+				octothorpe_3_text,
 				'X', "slabWood",
 				'#', "plankWood",
 				'C', "beeComb");

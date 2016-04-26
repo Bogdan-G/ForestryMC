@@ -107,7 +107,7 @@ public abstract class Genome implements IGenome {
 			return "null";
 		}
 
-		StringBuilder stringBuilder = new StringBuilder();
+		StringBuilder stringBuilder = new StringBuilder(32);
 		IChromosomeType[] karyotype = getSpeciesRoot().getKaryotype();
 		for (int i = 0; i < chromosomes.length; i++) {
 			IChromosomeType chromosomeType = karyotype[i];

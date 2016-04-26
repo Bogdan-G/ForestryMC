@@ -38,6 +38,8 @@ import forestry.plugins.PluginManager;
 public class PluginHarvestCraft extends ForestryPlugin {
 
 	private static final String HC = "harvestcraft";
+	private final String farmOrchard_text = "farmOrchard";
+	private final String farmWheat_text = "farmWheat";
 
 	@Override
 	public boolean isAvailable() {
@@ -203,8 +205,8 @@ public class PluginHarvestCraft extends ForestryPlugin {
 				RecipeManagers.squeezerManager.addRecipe(10, new ItemStack[]{berrySeed}, Fluids.SEEDOIL.getFluid(seedamount));
 			}
 			if (PluginManager.Module.FARMING.isEnabled() && berrySeed != null && berryBlock != null) {
-				Farmables.farmables.get("farmWheat").add(new FarmableGenericCrop(berrySeed, berryBlock, 7));
-				Farmables.farmables.get("farmOrchard").add(new FarmableBasicFruit(berryBlock, 7));
+				Farmables.farmables.get(farmWheat_text).add(new FarmableGenericCrop(berrySeed, berryBlock, 7));
+				Farmables.farmables.get(farmOrchard_text).add(new FarmableBasicFruit(berryBlock, 7));
 			}
 			plants.add(berryName);
 		}
@@ -221,8 +223,8 @@ public class PluginHarvestCraft extends ForestryPlugin {
 				RecipeManagers.squeezerManager.addRecipe(10, new ItemStack[]{fruitSeed}, Fluids.SEEDOIL.getFluid(seedamount));
 			}
 			if (PluginManager.Module.FARMING.isEnabled() && fruitSeed != null && fruitBlock != null) {
-				Farmables.farmables.get("farmWheat").add(new FarmableGenericCrop(fruitSeed, fruitBlock, 7));
-				Farmables.farmables.get("farmOrchard").add(new FarmableBasicFruit(fruitBlock, 7));
+				Farmables.farmables.get(farmWheat_text).add(new FarmableGenericCrop(fruitSeed, fruitBlock, 7));
+				Farmables.farmables.get(farmOrchard_text).add(new FarmableBasicFruit(fruitBlock, 7));
 			}
 			plants.add(fruitName);
 		}
@@ -241,7 +243,7 @@ public class PluginHarvestCraft extends ForestryPlugin {
 			}
 			if (PluginManager.Module.FARMING.isEnabled() && vegetableSeed != null && vegetableBlock != null) {
 				Farmables.farmables.get("farmVegetables").add(new FarmableGenericCrop(vegetableSeed, vegetableBlock, 7));
-				Farmables.farmables.get("farmOrchard").add(new FarmableBasicFruit(vegetableBlock, 7));
+				Farmables.farmables.get(farmOrchard_text).add(new FarmableBasicFruit(vegetableBlock, 7));
 			}
 			plants.add(vegetableName);
 		}
@@ -259,8 +261,8 @@ public class PluginHarvestCraft extends ForestryPlugin {
 				RecipeManagers.moistenerManager.addRecipe(grainSeed, new ItemStack(Blocks.mycelium), 5000);
 			}
 			if (PluginManager.Module.FARMING.isEnabled() && grainSeed != null && grainBlock != null) {
-				Farmables.farmables.get("farmWheat").add(new FarmableGenericCrop(grainSeed, grainBlock, 7));
-				Farmables.farmables.get("farmOrchard").add(new FarmableBasicFruit(grainBlock, 7));
+				Farmables.farmables.get(farmWheat_text).add(new FarmableGenericCrop(grainSeed, grainBlock, 7));
+				Farmables.farmables.get(farmOrchard_text).add(new FarmableBasicFruit(grainBlock, 7));
 			}
 			plants.add(grainName);
 		}
@@ -269,7 +271,7 @@ public class PluginHarvestCraft extends ForestryPlugin {
 			ItemStack treeFruit = GameRegistry.findItemStack(HC, treeFruitName + "Item", 1);
 			Block treeFruitBlock = GameRegistry.findBlock(HC, "pam" + (Character.toUpperCase(treeFruitName.charAt(0)) + treeFruitName.substring(1)));
 			if (PluginManager.Module.FARMING.isEnabled() && treeFruitBlock != null) {
-				Farmables.farmables.get("farmOrchard").add(new FarmableBasicFruit(treeFruitBlock, 2));
+				Farmables.farmables.get(farmOrchard_text).add(new FarmableBasicFruit(treeFruitBlock, 2));
 			}
 			if (treeFruit != null) {
 				RecipeManagers.squeezerManager.addRecipe(10, new ItemStack[]{treeFruit}, Fluids.JUICE.getFluid(juiceAmount));
@@ -280,7 +282,7 @@ public class PluginHarvestCraft extends ForestryPlugin {
 		for (String treeName : trees) {
 			Block fruitBlock = GameRegistry.findBlock(HC, "pam" + (Character.toUpperCase(treeName.charAt(0)) + treeName.substring(1)));
 			if (PluginManager.Module.FARMING.isEnabled() && fruitBlock != null) {
-				Farmables.farmables.get("farmOrchard").add(new FarmableBasicFruit(fruitBlock, 2));
+				Farmables.farmables.get(farmOrchard_text).add(new FarmableBasicFruit(fruitBlock, 2));
 			}
 			plants.add(treeName);
 		}
@@ -288,7 +290,7 @@ public class PluginHarvestCraft extends ForestryPlugin {
 		for (String treeName : treesSpecial) {
 			Block fruitBlock = GameRegistry.findBlock(HC, "pam" + (Character.toUpperCase(treeName.charAt(0)) + treeName.substring(1)));
 			if (PluginManager.Module.FARMING.isEnabled() && fruitBlock != null) {
-				Farmables.farmables.get("farmOrchard").add(new FarmableBasicFruit(fruitBlock, 2));
+				Farmables.farmables.get(farmOrchard_text).add(new FarmableBasicFruit(fruitBlock, 2));
 			}
 		}
 
@@ -299,8 +301,8 @@ public class PluginHarvestCraft extends ForestryPlugin {
 				RecipeManagers.squeezerManager.addRecipe(10, new ItemStack[]{genericCropSeed}, Fluids.SEEDOIL.getFluid(seedamount));
 			}
 			if (PluginManager.Module.FARMING.isEnabled() && genericCropSeed != null && genericCropBlock != null) {
-				Farmables.farmables.get("farmWheat").add(new FarmableGenericCrop(genericCropSeed, genericCropBlock, 7));
-				Farmables.farmables.get("farmOrchard").add(new FarmableBasicFruit(genericCropBlock, 7));
+				Farmables.farmables.get(farmWheat_text).add(new FarmableGenericCrop(genericCropSeed, genericCropBlock, 7));
+				Farmables.farmables.get(farmOrchard_text).add(new FarmableBasicFruit(genericCropBlock, 7));
 			}
 			plants.add(cropName);
 		}
@@ -311,8 +313,8 @@ public class PluginHarvestCraft extends ForestryPlugin {
 			RecipeManagers.squeezerManager.addRecipe(10, new ItemStack[]{mustardCropSeed}, Fluids.SEEDOIL.getFluid(seedamount));
 		}
 		if (PluginManager.Module.FARMING.isEnabled() && mustardCropSeed != null && mustardCropBlock != null) {
-			Farmables.farmables.get("farmWheat").add(new FarmableGenericCrop(mustardCropSeed, mustardCropBlock, 7));
-			Farmables.farmables.get("farmOrchard").add(new FarmableBasicFruit(mustardCropBlock, 7));
+			Farmables.farmables.get(farmWheat_text).add(new FarmableGenericCrop(mustardCropSeed, mustardCropBlock, 7));
+			Farmables.farmables.get(farmOrchard_text).add(new FarmableBasicFruit(mustardCropBlock, 7));
 		}
 		if (mustardFruit != null) {
 			RecipeUtil.addFermenterRecipes(mustardFruit, ForestryAPI.activeMode.getIntegerSetting("fermenter.yield.wheat"), Fluids.BIOMASS);
@@ -333,8 +335,8 @@ public class PluginHarvestCraft extends ForestryPlugin {
 				RecipeManagers.squeezerManager.addRecipe(10, new ItemStack[]{cropnutSeed}, Fluids.SEEDOIL.getFluid(seedamount));
 			}
 			if (PluginManager.Module.FARMING.isEnabled() && cropnutSeed != null && cropnutBlock != null) {
-				Farmables.farmables.get("farmWheat").add(new FarmableGenericCrop(cropnutSeed, cropnutBlock, 7));
-				Farmables.farmables.get("farmOrchard").add(new FarmableBasicFruit(cropnutBlock, 7));
+				Farmables.farmables.get(farmWheat_text).add(new FarmableGenericCrop(cropnutSeed, cropnutBlock, 7));
+				Farmables.farmables.get(farmOrchard_text).add(new FarmableBasicFruit(cropnutBlock, 7));
 			}
 			if (cropnut != null) {
 				RecipeManagers.squeezerManager.addRecipe(20, new ItemStack[]{cropnut}, Fluids.SEEDOIL.getFluid(12 * seedamount));
@@ -345,7 +347,7 @@ public class PluginHarvestCraft extends ForestryPlugin {
 			ItemStack nut = GameRegistry.findItemStack(HC, nutName + "Item", 1);
 			Block nutBlock = GameRegistry.findBlock(HC, "pam" + (Character.toUpperCase(nutName.charAt(0)) + nutName.substring(1)));
 			if (PluginManager.Module.FARMING.isEnabled() && nutBlock != null) {
-				Farmables.farmables.get("farmOrchard").add(new FarmableBasicFruit(nutBlock, 2));
+				Farmables.farmables.get(farmOrchard_text).add(new FarmableBasicFruit(nutBlock, 2));
 			}
 			if (nut != null) {
 				RecipeManagers.squeezerManager.addRecipe(20, new ItemStack[]{nut}, Fluids.SEEDOIL.getFluid(15 * seedamount));

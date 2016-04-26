@@ -58,7 +58,7 @@ public class BackpackDefinition implements IBackpackDefinition {
 	@Override
 	public String getName(ItemStack backpack) {
 		Item item = backpack.getItem();
-		String display = ("" + StatCollector.translateToLocal(item.getUnlocalizedNameInefficiently(backpack) + ".name")).trim();
+		String display = (String.valueOf(StatCollector.translateToLocal(item.getUnlocalizedNameInefficiently(backpack) + ".name"))).trim();
 
 		if (backpack.stackTagCompound != null && backpack.stackTagCompound.hasKey("display", 10)) {
 			NBTTagCompound nbt = backpack.stackTagCompound.getCompoundTag("display");
@@ -96,7 +96,7 @@ public class BackpackDefinition implements IBackpackDefinition {
 
 		int meta = validItem.getItemDamage();
 		if (meta != OreDictionary.WILDCARD_VALUE) {
-			itemStackString = itemStackString + ':' + meta;
+			itemStackString = String.valueOf(new StringBuilder().append(itemStackString).append(':').append(meta));
 		}
 
 		this.validItemStacks.add(itemStackString);

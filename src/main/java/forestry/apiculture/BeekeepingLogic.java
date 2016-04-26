@@ -500,10 +500,8 @@ public class BeekeepingLogic implements IBeekeepingLogic, IStreamable {
 			if (pollen == null) {
 				attemptedPollinations = 0;
 				pollen = queen.retrievePollen(beeHousing);
-				if (pollen != null) {
-					if (beeListener.onPollenRetrieved(pollen)) {
+				if (pollen != null && beeListener.onPollenRetrieved(pollen)) {
 						pollen = null;
-					}
 				}
 			}
 

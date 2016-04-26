@@ -56,12 +56,12 @@ public class CommandPlugins extends SubCommand {
 
 		Plugin info = plugin.getClass().getAnnotation(Plugin.class);
 		if (info != null) {
-			entry += info.pluginID();
+			entry = String.valueOf(new StringBuilder().append(entry).append(info.pluginID()));
 			if (!info.version().isEmpty()) {
-				entry += " (" + info.version() + ")";
+				entry = String.valueOf(new StringBuilder().append(entry).append(" (").append(info.version()).append(")"));
 			}
 		} else {
-			entry += "???";
+			entry = String.valueOf(new StringBuilder().append(entry).append("???"));
 		}
 
 		return entry;

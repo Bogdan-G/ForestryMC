@@ -161,9 +161,9 @@ public class Version {
 				if (line.startsWith("#")) {
 					continue;
 				}
-				if (line.isEmpty()) {
+				/*if (line.isEmpty()) { //not need, startsWith true if empty string: https://docs.oracle.com/javase/7/docs/api/java/lang/String.html#startsWith(java.lang.String)
 					continue;
-				}
+				}*/
 
 				changelog.add(line);
 			}

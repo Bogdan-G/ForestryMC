@@ -20,6 +20,9 @@ import net.minecraftforge.common.config.Property;
 
 public class LocalizedConfiguration extends Configuration {
 
+	private final String for_config_text = "for.config.";
+	private final String comment_text = "comment";
+	
 	public LocalizedConfiguration(File file, String configVersion) {
 		super(file, configVersion);
 	}
@@ -36,8 +39,8 @@ public class LocalizedConfiguration extends Configuration {
 	}
 
 	public boolean getBooleanLocalized(String category, String name, boolean defaultValue) {
-		String langKey = "for.config." + category + '.' + name;
-		String commentKey = langKey + '.' + "comment";
+		String langKey = for_config_text + category + '.' + name;
+		String commentKey = langKey + '.' + comment_text;
 		String comment = "";
 		if (StatCollector.canTranslate(commentKey)) {
 			comment = StatCollector.translateToLocal(commentKey);
@@ -46,8 +49,8 @@ public class LocalizedConfiguration extends Configuration {
 	}
 
 	public String getStringLocalized(String category, String name, String defaultValue) {
-		String langKey = "for.config." + category + '.' + name;
-		String commentKey = langKey + '.' + "comment";
+		String langKey = for_config_text + category + '.' + name;
+		String commentKey = langKey + '.' + comment_text;
 		String comment = "";
 		if (StatCollector.canTranslate(commentKey)) {
 			comment = StatCollector.translateToLocal(commentKey);
@@ -56,8 +59,8 @@ public class LocalizedConfiguration extends Configuration {
 	}
 
 	public String getStringLocalized(String category, String name, String defaultValue, String[] validValues) {
-		String langKey = "for.config." + category + '.' + name;
-		String commentKey = langKey + '.' + "comment";
+		String langKey = for_config_text + category + '.' + name;
+		String commentKey = langKey + '.' + comment_text;
 		String comment = "";
 		if (StatCollector.canTranslate(commentKey)) {
 			comment = StatCollector.translateToLocal(commentKey);
@@ -71,8 +74,8 @@ public class LocalizedConfiguration extends Configuration {
 	}
 
 	public <T extends Enum<T>> T getEnumLocalized(String category, String name, T defaultValue, T[] validEnumValues) {
-		String langKey = "for.config." + category + '.' + name;
-		String commentKey = langKey + '.' + "comment";
+		String langKey = for_config_text + category + '.' + name;
+		String commentKey = langKey + '.' + comment_text;
 		String comment = "";
 		if (StatCollector.canTranslate(commentKey)) {
 			comment = StatCollector.translateToLocal(commentKey);
@@ -102,8 +105,8 @@ public class LocalizedConfiguration extends Configuration {
 	}
 
 	public String[] getStringListLocalized(String category, String name, String[] defaultValue) {
-		String langKey = "for.config." + category + '.' + name;
-		String commentKey = langKey + '.' + "comment";
+		String langKey = for_config_text + category + '.' + name;
+		String commentKey = langKey + '.' + comment_text;
 		String comment = "";
 		if (StatCollector.canTranslate(commentKey)) {
 			comment = StatCollector.translateToLocal(commentKey);
@@ -112,8 +115,8 @@ public class LocalizedConfiguration extends Configuration {
 	}
 
 	public String[] getStringListLocalized(String category, String name, String[] defaultValue, String[] validValues) {
-		String langKey = "for.config." + category + '.' + name;
-		String commentKey = langKey + '.' + "comment";
+		String langKey = for_config_text + category + '.' + name;
+		String commentKey = langKey + '.' + comment_text;
 		String comment = "";
 		if (StatCollector.canTranslate(commentKey)) {
 			comment = StatCollector.translateToLocal(commentKey);
@@ -127,8 +130,8 @@ public class LocalizedConfiguration extends Configuration {
 	}
 
 	public float getFloatLocalized(String category, String name, float defaultValue, float minValue, float maxValue) {
-		String langKey = "for.config." + category + '.' + name;
-		String commentKey = langKey + '.' + "comment";
+		String langKey = for_config_text + category + '.' + name;
+		String commentKey = langKey + '.' + comment_text;
 		String comment = "";
 		if (StatCollector.canTranslate(commentKey)) {
 			comment = StatCollector.translateToLocal(commentKey);
@@ -137,8 +140,8 @@ public class LocalizedConfiguration extends Configuration {
 	}
 
 	public int getIntLocalized(String category, String name, int defaultValue, int minValue, int maxValue) {
-		String langKey = "for.config." + category + '.' + name;
-		String commentKey = langKey + '.' + "comment";
+		String langKey = for_config_text + category + '.' + name;
+		String commentKey = langKey + '.' + comment_text;
 		String comment = "";
 		if (StatCollector.canTranslate(commentKey)) {
 			comment = StatCollector.translateToLocal(commentKey);
