@@ -25,7 +25,7 @@ import forestry.api.genetics.IIndividual;
 import forestry.api.genetics.IPollinatable;
 import forestry.core.utils.StringUtil;
 
-public class FlowerProvider implements IFlowerProvider {
+public class FlowerProvider implements IFlowerProvider, java.io.Serializable {
 
 	private final String flowerType;
 	private final String description;

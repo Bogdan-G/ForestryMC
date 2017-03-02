@@ -39,7 +39,7 @@ import forestry.core.render.IBlockRenderer;
 import forestry.core.render.TextureManager;
 import forestry.core.utils.BlockUtil;
 
-public class MachineDefinition {
+public class MachineDefinition implements java.io.Serializable {
 
 	public final Class<? extends TileForestry> teClass;
 

@@ -15,7 +15,7 @@ import net.minecraft.nbt.NBTTagCompound;
 import forestry.api.genetics.IChromosomeType;
 import forestry.api.genetics.IIndividual;
 
-public abstract class Individual implements IIndividual {
+public abstract class Individual implements IIndividual, java.io.Serializable {
 
 	protected boolean isAnalyzed = false;
 

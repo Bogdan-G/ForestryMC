@@ -20,7 +20,7 @@ import net.minecraftforge.oredict.OreDictionary;
 
 import forestry.api.genetics.IFlower;
 
-final class Flower implements IFlower {
+final class Flower implements IFlower, java.io.Serializable {
 
 	private final Block block;
 	private final int meta;

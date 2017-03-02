@@ -57,7 +57,7 @@ import forestry.core.utils.vect.MutableVect;
 import forestry.core.utils.vect.Vect;
 import forestry.plugins.PluginManager;
 
-public final class FlowerRegistry implements IFlowerRegistry, IFlowerGrowthHelper {
+public final class FlowerRegistry implements IFlowerRegistry, IFlowerGrowthHelper, java.io.Serializable {
 
 	private final Set<String> defaultFlowerTypes = ImmutableSet.of(
 			FlowerManager.FlowerTypeVanilla,

@@ -24,7 +24,7 @@ import cpw.mods.fml.relauncher.SideOnly;
 /**
  * @author CovertJaguar <http://www.railcraft.info>
  */
-public class ParticleHelper {
+public class ParticleHelper implements java.io.Serializable {
 
 	private static final Random rand = new Random();
 
@@ -117,7 +117,7 @@ public class ParticleHelper {
 		void addDestroyEffects(EntityDiggingFX fx, World world, int x, int y, int z, int meta);
 	}
 
-	public static class DefaultCallback implements ParticleHelper.Callback {
+	public static class DefaultCallback implements ParticleHelper.Callback, java.io.Serializable {
 
 		private final Block block;
 
