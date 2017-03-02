@@ -69,7 +69,7 @@ public class BlockArbStairs extends BlockStairs implements IWoodTyped, ITileEnti
 	/* DROP HANDLING */
 	// Hack: 	When harvesting we need to get the drops in onBlockHarvested,
 	// 			because Mojang destroys the block and tile before calling getDrops.
-	private final ThreadLocal<ArrayList<ItemStack>> drops = new ThreadLocal<>();
+	private transient final ThreadLocal<ArrayList<ItemStack>> drops = new ThreadLocal<>();
 
 	@Override
 	public void onBlockHarvested(World world, int x, int y, int z, int meta, EntityPlayer playerProfile) {

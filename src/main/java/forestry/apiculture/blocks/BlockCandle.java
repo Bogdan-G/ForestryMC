@@ -233,7 +233,7 @@ public class BlockCandle extends BlockTorch {
 	/* DROP HANDLING */
 	// Hack: 	When harvesting we need to get the drops in onBlockHarvested,
 	// 			because Mojang destroys the block and tile before calling getDrops.
-	private final ThreadLocal<ItemStack> drop = new ThreadLocal<>();
+	private transient final ThreadLocal<ItemStack> drop = new ThreadLocal<>();
 
 	@Override
 	public void onBlockHarvested(World world, int x, int y, int z, int metadata, EntityPlayer player) {

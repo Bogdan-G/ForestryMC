@@ -30,6 +30,7 @@ import forestry.api.apiculture.IBeeHousingInventory;
 import forestry.api.apiculture.IBeeListener;
 import forestry.api.apiculture.IBeeModifier;
 import forestry.api.apiculture.IBeekeepingLogic;
+import forestry.api.core.BiomeHelper;
 import forestry.api.core.EnumHumidity;
 import forestry.api.core.EnumTemperature;
 import forestry.api.core.IClimateControlled;
@@ -53,7 +54,6 @@ public class AlvearyController extends RectangularMultiblockControllerBase imple
 	private final InventoryBeeHousing inventory;
 	private final IBeekeepingLogic beekeepingLogic;
 
-	private BiomeGenBase cachedBiome;
 	private float tempChange = 0.0f;
 	private float humidChange = 0.0f;
 
@@ -359,7 +359,8 @@ public class AlvearyController extends RectangularMultiblockControllerBase imple
 	@Override
 	public EnumTemperature getTemperature() {
 		IBeeModifier beeModifier = BeeManager.beeRoot.createBeeHousingModifier(this);
-		if (beeModifier.isHellish() && tempChange >= 0) {
+		BiomeGenBase biome = getBiome();
+		if ((beeModifier.isHellish() || BiomeHelper.isBiomeHellish(biome)) && tempChange >= 0) {
 			return EnumTemperature.HELLISH;
 		}
 
@@ -383,11 +384,8 @@ public class AlvearyController extends RectangularMultiblockControllerBase imple
 
 	@Override
 	public BiomeGenBase getBiome() {
-		if (cachedBiome == null) {
-			ChunkCoordinates coords = getReferenceCoord();
-			cachedBiome = worldObj.getBiomeGenForCoords(coords.posX, coords.posZ);
-		}
-		return cachedBiome;
+		ChunkCoordinates coords = getReferenceCoord();
+		return worldObj.getBiomeGenForCoords(coords.posX, coords.posZ);
 	}
 
 	@Override
